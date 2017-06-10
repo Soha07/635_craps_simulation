@@ -3,7 +3,7 @@ public class CrookedDie1 extends Die
 {
 	public CrookedDie1()
 	{
-		CrapsGame.println("  CrookedDie1's constructor called.");
+		CrapsGame.println("  CrookedDie1's constructor called."); //
 		
 	}
 
