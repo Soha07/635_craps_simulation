@@ -17,7 +17,7 @@ public class PlayWithInheritance
 
 		// which constructors are called in the following?
 
-		Die die1 = new Die();
+		Die aSingleDie = new Die();
 		CrookedDie1 crooked1 = new CrookedDie1();
 		CrookedDie2 crooked2 = new CrookedDie2();
 
@@ -35,18 +35,18 @@ public class PlayWithInheritance
 			// => toString() is automatically invoked, and its returned value
 			// used instead!
 
-			StdOut.println(die1.toString());
+			StdOut.println(aSingleDie.toString());
 
 			StdOut.print("toString() automatically called when reference treated as String: ");
-			StdOut.println(die1.toString());
-			StdOut.println("Concatenating a string to a reference: " + die1.toString());
+			StdOut.println(aSingleDie.toString());
+			StdOut.println("Concatenating a string to a reference: " + aSingleDie.toString());
 		}
 		else if (RUN_EXAMPLE == 3)
 		{
 			// concatenate " " + super.toString() to end of toString() code
 			// inside each of 3 classes, then watch the result when run again.
 
-			StdOut.println("die1's toString(): '" + die1 + "'");
+			StdOut.println("die1's toString(): '" + aSingleDie + "'");
 			StdOut.println("crooked1's toString(): '" + crooked1 + "'");
 			StdOut.println("crooked2's toString(): '" + crooked2 + "'");
 		}
@@ -66,7 +66,7 @@ public class PlayWithInheritance
 			double toss = Math.random(); // [0.0..1.0)
 
 			if (toss < 0.333)
-				alias = die1;
+				alias = aSingleDie;
 			else if (toss < 0.666)
 				alias = crooked1;
 			else
@@ -82,13 +82,13 @@ public class PlayWithInheritance
 		{
 			Die another = new Die();
 
-			Dice dice = new Dice(die1, crooked1); // we'll try substituting here
+			Dice dice = new Dice(aSingleDie, crooked1); // we'll try substituting here
 
 			dice.roll();
 
 			int result = dice.getLastRoll();
 
-			StdOut.printf("Roll of '%s' and '%s' is: %d.\n", die1, crooked1, result);
+			StdOut.printf("Roll of '%s' and '%s' is: %d.\n", aSingleDie, crooked1, result);
 		}
 
 		StdOut.println();

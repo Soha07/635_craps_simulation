@@ -46,14 +46,14 @@ public class TestCraps
 	 * exactly k rolls: <code>winsteps[k]==w </code>, out of
 	 * <code>numPlays</code> total plays.
 	 */
-	private int[] winSteps = new int[100];
+	private int[] winForNumberOfStepsOf = new int[100];
 
 	/**
 	 * int array field <code>lossSteps</code> racks number of losses l after
 	 * exactly k rolls: <code>lossSteps[k]==l</code>, out of
 	 * <code>numPlays</code> total plays.
 	 */
-	private int[] lossSteps = new int[100];
+	private int[] lossForNumberOfStepsOf = new int[100];
 
 	/**
 	 * Constructor TestCraps() creates a new CrapsGame for subsequent play.
@@ -84,7 +84,7 @@ public class TestCraps
 		numWins = 0;
 		for (int numSteps = 0; numSteps < numPlays; numSteps++)
 		{
-			if (game.playOneGame(winSteps, lossSteps))
+			if (game.playOneGame(winForNumberOfStepsOf, lossForNumberOfStepsOf))
 			{
 				numWins++;
 			}
@@ -103,10 +103,10 @@ public class TestCraps
 	public void reportStats()
 	{
 		StdOut.println("\nNumber of (wins,losses) for games of given length follow:\n");
-		for (int i = 1; i < winSteps.length; i++)
+		for (int numSteps = 1; numSteps < winForNumberOfStepsOf.length; numSteps++)
 		{
-			StdOut.println("(wins,losses) ending at " + i + " roll" + ((i > 1) ? "s" : "") + ": (" + winSteps[i] + ","
-					+ lossSteps[i] + ")");
+			StdOut.println("(wins,losses) ending at " + numSteps + " roll" + ((numSteps > 1) ? "s" : "") + ": (" + winForNumberOfStepsOf[numSteps] + ","
+					+ lossForNumberOfStepsOf[numSteps] + ")");
 		}
 
 		StdOut.println("\nPlayed " + numPlays + " games total.");
